@@ -2,6 +2,36 @@
 # List of Webex video-recorded lectures (in Italian)
 [[**Home**](../../README.md)]
 
+
+## Summer 2025
+
+* Lecture 1<br />
+_<https://unito.webex.com/recordingservice/sites/unito/recording/play/f5510ecef7c0103bafec5ed50d23eeac>_
+
+* Lecture 2<br />
+_<https://unito.webex.com/recordingservice/sites/unito/recording/play/48a338f0f88a103bbf7cd620c2ef7930>_
+
+* Lecture 3<br />
+_<https://unito.webex.com/recordingservice/sites/unito/recording/play/3712f84df953103bb9fb6a1108ce59c9>_
+
+* Lecture 4<br />
+_<https://unito.webex.com/recordingservice/sites/unito/recording/play/00f87711fbaf103bb95f6a1108ce59c9>_
+
+* Lecture 5<br />
+_<https://unito.webex.com/recordingservice/sites/unito/recording/play/0431b746fc78103bbff7ae3bcd3007a7>_
+
+* Lecture 6<br />
+_<https://unito.webex.com/recordingservice/sites/unito/recording/play/2dfffb53fd41103ba7ff7a88bbff909e>_
+
+* Lecture 7<br />
+_<https://unito.webex.com/recordingservice/sites/unito/recording/play/719d3471fed3103bb99d3ed1083c320c>_
+
+* Lecture 8<br />
+_<https://unito.webex.com/recordingservice/sites/unito/recording/play/ce1d9d3f012e103cbf7e162619a3ba71>_
+
+No extra lectures.
+
+
 ## Fall 2020
 
 * Lecture 1<br/>

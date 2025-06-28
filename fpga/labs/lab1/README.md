@@ -440,10 +440,10 @@ If you elaborate compiled sources without this option **you will NOT BE ABLE to 
 > **NOT the corresponding VHDL source file**! The following command-line syntax is therefore **WRONG** and generates errors:
 >
 > ```
-> % xelab -debug all tb_Inverter.v
+> % xelab -debug all tb_Inverter.vhd
 > ```
 >
-> Do not call `xelab` targeting a `.v` file and **always pay attention to TAB completion on files**!
+> Do not call `xelab` targeting a `.vhd` file and **always pay attention to TAB completion on files**!
 >
 
 <br />
@@ -1175,27 +1175,32 @@ RMDIR := rm -rf -v
 
 ## compile VHDL sources (xvhdl)
 compile:
-        @xvhdl $(SOURCES) -log $@.log
+   @xvhdl $(SOURCES) -log $@.log
 
 
 ## elaborate the design (xelab)
 elaborate:
-	@xelab -debug all $(TOP) -log $@.log
+   @xelab -debug all $(TOP) -log $@.log
 
 
 ## run the simulation (xsim)
-simulate:
-	@xsim -gui -tclbatch run.tcl $(TOP) -log $@.log
+simulate: xsim.dir/work.$(TOP)
+	@xsim -gui -tclbatch run.tcl work.$(TOP) -wdb $(TOP).wdb -log $@.log
 
 
 ## one-step compilation/elaboration/simulation
 sim: compile elaborate simulate
 
 
+## load waveforms into XSim GUI
+waves: $(TOP).wdb
+   @xsim -gui $(TOP).wdb -nolog
+
+
 ## delete all log files and simulation outputs
 clean:
-        @$(RM) *.log *.jou *.pb *.wdb *.wcfg
-        @$(RMDIR) xsim.dir .Xil
+   @$(RM) *.log *.jou *.pb *.wdb *.wcfg *.str
+   @$(RMDIR) xsim.dir .Xil
 ```
 
 <br />

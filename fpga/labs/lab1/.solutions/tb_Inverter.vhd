@@ -57,8 +57,9 @@ begin
    --DUT : Inverter port map (X, ZN) ;            -- ORDERED (positional) port mapping
    DUT : Inverter port map (X => X, ZN => ZN) ;   -- BY-NAME port mapping
 
-   -- another possibility is to use the sa called ENTITY INSTANTIATION (pick the compiled entity from the default work library)
+   -- another possibility is to use a more compact ENTITY INSTANTIATION (pick the compiled entity from the default WORK library)
    --DUT : entity work.Inverter(rtl)  port map (X => X, ZN => ZN) ;
+
 
    -----------------------
    --   main stimulus   --

@@ -5,12 +5,15 @@
 ## Fall 2020
 ##
 
-## list of VHDL sources to be compiled
-SOURCES := Inverter.vhd tb_Inverter.vhd
+## list of Verilog sources to be compiled
+SOURCES := Gates.vhd tb_Gates.vhd
+#SOURCES := GatesTruthTable.vhd tb_Gates.vhd
+#SOURCES := RingOscillator.vhd tb_RingOscillator.vhd
 
 
 ## top-level module (testbench)
-TOP := tb_Inverter
+TOP := tb_Gates
+#TOP := tb_RingOscillator
 
 
 ## some useful aliases
@@ -18,7 +21,7 @@ RM    := rm -f -v
 RMDIR := rm -rf -v
 
 
-## compile VHDL sources (xvhdl)
+## compile Verilog sources (xvlog)
 compile: $(SOURCES)
 	@xvhdl $(SOURCES) -log $@.log
 
@@ -29,29 +32,24 @@ elaborate:
 
 
 ## run the simulation (xsim)
-#simulate: xsim.dir/work.$(TOP)
-#	@xsim -gui -tclbatch run.tcl work.$(TOP) -log $@.log
-
-
-## same as before, but keep alive the shell under Windows!
 simulate: xsim.dir/work.$(TOP)
 	@echo "exec xsim -gui -tclbatch run.tcl work.$(TOP) -wdb $(TOP).wdb -log $@.log &" | tclsh -norc
 
 
 ## one-step compilation/elaboration/simulation
-sim: compile elaborate simulate
+sim : compile elaborate simulate
 
 
 ## load waveforms into XSim GUI
-waves:
+waves :
 	@echo "exec xsim -gui $(TOP).wdb -nolog &" | tclsh -norc
 
 
 ## delete all log files and simulation outputs
-clean:
+clean :
 	@$(RM) *.log *.jou *.pb *.wdb *.wcfg *.str
 	@$(RMDIR) xsim.dir .Xil
 
 
 ## none of the above implemented targets are on-disk files, declare them as PHONY
-.PHONY: compile elaborate simulate sim clean
+.PHONY : compile elaborate simulate sim clean 
