@@ -1,3 +1,7 @@
+<div align="justify">
+
+<!-- To contribute to the repo, clone with SSH passphrase: git clone ssh://git@github.com/lpacher/fphd.git [target directory] -->
+
 ![](doc/etc/logo.png)
 
 # Introduction to FPGA Programming <br/> _Using Xilinx Vivado and VHDL_
@@ -6,8 +10,8 @@
 
 <br />
 
-Git repository for the [_Introduction to FPGA Programming Using Xilinx Vivado and VHDL_](https://www.phdphysics.unito.it/do/corsi.pl/Show?_id=4uun) (4 CFU)
-PhD course at University of Torino, Physics Department.
+Git repository for the [_Introduction to FPGA Programming Using Xilinx Vivado and VHDL_](https://www.phdphysics.unito.it/do/corsi.pl/Show?_id=4uun)
+(16 hours, 4 CFU) PhD course at University of Torino, Physics Department.
 
 <br />
 
@@ -67,6 +71,8 @@ The main topics covered in the course are:
 * gate-level simulations with back-annotated delays (SDF)
 * practical implementation and test of small digital systems targeting a Xilinx Artix-7 FPGA device
 
+<br />
+
 >
 > **IMPORTANT !**
 >
@@ -82,18 +88,13 @@ The main topics covered in the course are:
 [**[Contents]**](#contents)
 
 <br />
-Lecture slides are available at:
+Lecture slides are available on the main
+[**CampusNet course material page**](https://www.fisicamagistrale.unito.it/do/didattica.pl/Quest?corso=70d4)
+while a complete list of reference documentation and online resources is available in the
+[**Reference documentation**](#reference-documentation) section instead.
 
-<p>
+Board schematics can be found in the main `doc/` directory of the repository.
 
-**<http://personalpages.to.infn.it/~pacher/teaching/FPGA/phd/slides>**
-
-</p>
-
-A complete list of reference documentation and online resources is available in the [**Reference documentation**](#reference-documentation)
-section instead.<br />
-
-Board schematics can be found in the main `doc/` directory of the repository.<br />
 
 <br />
 Additional software components for Windows can be downloaded from:
@@ -120,7 +121,7 @@ and simulation using the **VHDL Hardware Description Language (HDL)** and **Xili
 Each "lab" consists of step-by-step instructions to guide the student in running the simulation and implementation flows using Xilinx tools from the command-line.
 The only requirement for these labs is to have a personal computer with [all necessary development tools properly installed and configured](fpga/labs/lab0/README.md).
 
-The complete list of proposed labs can be found [**here**](https://github.com/lpacher/fphd/tree/master/labs). 
+The complete list of proposed labs can be found [**here**](https://github.com/lpacher/fphd/tree/master/fpga/labs). 
 
 Virtual laboratories are then supported by [**practical examples**](fpga/practicum/README.md) in the electronics lab in order to let students to physically experiment
 with a real FPGA and digital circuits using real hardware and instrumentation. 
@@ -583,27 +584,21 @@ The virtual room to attend the lectures is accessible at the following link:
 The complete list of past video-recorded lectures can be accessed [**here**](doc/webex/README.md).
 
 * Lecture 1<br />
-_<https://unito.webex.com/recordingservice/sites/unito/recording/play/f5510ecef7c0103bafec5ed50d23eeac>_
 
 * Lecture 2<br />
-_<https://unito.webex.com/recordingservice/sites/unito/recording/play/48a338f0f88a103bbf7cd620c2ef7930>_
 
 * Lecture 3<br />
-_<https://unito.webex.com/recordingservice/sites/unito/recording/play/3712f84df953103bb9fb6a1108ce59c9>_
 
 * Lecture 4<br />
-_<https://unito.webex.com/recordingservice/sites/unito/recording/play/00f87711fbaf103bb95f6a1108ce59c9>_
 
 * Lecture 5<br />
-_<https://unito.webex.com/recordingservice/sites/unito/recording/play/0431b746fc78103bbff7ae3bcd3007a7>_
 
 * Lecture 6<br />
-_<https://unito.webex.com/recordingservice/sites/unito/recording/play/2dfffb53fd41103ba7ff7a88bbff909e>_
 
 * Lecture 7<br />
-_<https://unito.webex.com/recordingservice/sites/unito/recording/play/719d3471fed3103bb99d3ed1083c320c>_
 
 * Lecture 8<br />
-_<https://unito.webex.com/recordingservice/sites/unito/recording/play/ce1d9d3f012e103cbf7e162619a3ba71>_
 
-No extra lectures.
+
+</div>
+
