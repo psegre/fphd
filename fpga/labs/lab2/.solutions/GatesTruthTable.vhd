@@ -29,6 +29,8 @@ end entity Gates ;
 -------------------------------------
 architecture rtl of Gates is
 
+   --signal AB : std_logic_vector(1 downto 0) ;
+
 begin
 
    Z <= "101010" when A = '0' and B = '0' else
@@ -40,10 +42,13 @@ begin
 
    -- alternatively a software-like 'case' statement can be used within a 'process' sequential block
 
-   --process (all)
+   --AB <= A & B ;   -- concatenation
+
+   --process (all)   -- **NOTE: this is a VHDL-2008 only syntax (needs 'xvhdl -2008' switch)
+   --process (A,B)
    --begin
    --
-   --   case (A&B) is
+   --   case ( AB ) is
    --
    --      when "00"   => Z <= "101010" ;
    --      when "01"   => Z <= "010110" ;
@@ -52,7 +57,6 @@ begin
    --      when others => Z <= "XXXXXX" ;
    --
    --   end case;
-   --
    --end process ;
 
 end architecture rtl ;

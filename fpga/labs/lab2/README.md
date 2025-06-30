@@ -188,12 +188,12 @@ after saving your changes.
 
 In order to **simulate** the block we also need a **testbench module** to create a suitable **test pattern** for all gates.
 
-In this case a simple **2-bits synchronous counter** can be used to easily generate **all possible input combinations**
-`2'b00`, `2'b01`, `2'b10` and `2'b11` for `A` and `B` input ports.
+In this case a simple **2-bits synchronous counter** can be used to easily generate **all possible
+input combinations** `00`, `01`, `10` and `11` for `A` and `B` input ports.
 Thus we will also learn how to generate a **clock waveform** and to implement a **counter** in VHDL.
 
-The simulation code has been already prepared for you. Open the testbench module `tb_Gates.v` that you initially copied
-from the `.solutions/` directory with your text editor:
+The simulation code has been already prepared for you. Open the testbench module `tb_Gates.vhd`
+that you initially copied from the `.solutions/` directory with your text editor:
 
 ```
 % gedit tb_Gates.vhd &   (for Linux users)
@@ -493,8 +493,9 @@ remove_force -help
 
 **EXERCISE 2**
 
-Instead of using logic operators we can also implement the functionality of each basic gate in terms of a **truth table**.<br/>
-A VHDL `case` statement within a `process` sequential block can be used for this purpose.
+Instead of using logic operators we can also implement the functionality
+of each basic gate in terms of a **truth table**. 
+VHDL `when/else` statements can be used for this purpose.
 
 <br />
 
@@ -507,7 +508,7 @@ Create a new file e.g. `GatesTruthTable.vhd` and try to **complete** the followi
 
 ```vhdl
 --
--- Implement basic logic gates in terms of truth tables using 'case' and 'process' statements
+-- Implement basic logic gates in terms of truth tables
 --
 
 
@@ -536,16 +537,39 @@ architecture rtl of Gates is
 
 begin
 
-   process (all)
+   Z <= ... when A = '0' and B = '0' else
+        ....
+
+end architecture rtl ;
+```
+
+<br />
+
+Alternatively a software-like `case` statement can be used
+within a `process` sequential block:
+
+```vhdl
+
+architecture rtl of Gates is
+
+   signal AB : std_logic_vector(1 downto 0) ;
+
+begin
+
+   AB <= A & B ;   -- concatenation
+
+   --process (all)   -- **NOTE: this is a VHDL-2008 only syntax (needs 'xvhdl -2008' switch)
+   process (A,B)
    begin
-      case (A & B) is
-
-         when ...    =>  Z <= ... ;
-         when ...    =>  Z <= ... ;
-         when ...    =>  Z <= ... ;
-         when ...    =>  Z <= ... ;
-         when others =>  Z <= ... ;   -- catch-all
-
+   
+      case ( AB ) is
+   
+         when "00"   => Z <= "101010" ;
+         when "01"   => Z <= "010110" ;
+         when "10"   => Z <= "010110" ;
+         when "11"   => Z <= "100101" ;
+         when others => Z <= "XXXXXX" ;
+   
       end case;
    end process ;
 
@@ -558,8 +582,8 @@ We can simulate this new implementation using the same previous testbench code, 
 in the `tb_Gates.vhd` file:
 
 ```vhdl
---DUT : Gates port map (A => count(0), B => count(1), Z => Z) ;
-DUT : GatesTruthTable port map (A => count(0), B => count(1), Z => Z) ;
+--DUT : Gates port map (A => count(1), B => count(0), Z => Z) ;
+DUT : GatesTruthTable port map (A => count(1), B => count(0), Z => Z) ;
 ```
 
 <br />
@@ -602,7 +626,41 @@ using VHDL logic operators `nand` and `not` with **propagation delays**.
 Complete the following code skeleton:
 
 ```vhdl
+--
+-- Example VHDL implementation of a ring-oscillator using signal assignments
+-- with propagation delays.
+--
 
+
+library IEEE ;
+use IEEE.std_logic_1164.all ;
+
+entity RingOscillator is
+
+   port (
+      start : in std_logic;
+      clk   : out std_logic
+   ) ;
+
+end entity RingOscillator ;
+
+architecture rtl of RingOscillator is
+
+   -- wires for internal connections
+   signal w : std_logic_vector(4 downto 0) ;
+
+begin
+
+   w(0) <= not (w(4) and start) after 3ns ;
+
+   w(1) <= ... ;
+   w(2) <= ... ;
+   ...
+   ...
+
+   clk <= w(4) ;
+
+end architecture rtl ;
 ```
 
 <br />

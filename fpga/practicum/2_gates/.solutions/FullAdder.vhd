@@ -8,6 +8,7 @@
 
 library IEEE ;
 use IEEE.std_logic_1164.all ;   -- include extended logic values (by default VHDL only provides 0/1 with the 'bit' data type)
+use IEEE.std_logic_unsigned.all ;   -- to use + operator between std_logic_vector data types
 
 
 ----------------------------
@@ -17,11 +18,11 @@ entity FullAdder is
 
    port (
 
-      A    : in std_logic ;
-      B    : in std_logic ;
-      Cin  : in std_logic ;    -- input carry
+      A    : in  std_logic ;
+      B    : in  std_logic ;
+      Cin  : in  std_logic ;   -- input carry
       Sum  : out std_logic ;
-      Cout : out std_logic    -- output carry
+      Cout : out std_logic     -- output carry
    ) ;
 
 end entity FullAdder ;
@@ -72,22 +73,23 @@ begin
    --   truth-table implementation (behavioral)   --
    -------------------------------------------------
 
-   process (all)
-   begin
-
-      case ( Cin & A & B ) is
-
-          when "000" => result <= "00" ;
-          when "001" => result <= "01" ;
-          when "010" => result <= "01" ;
-          when "011" => result <= "10" ;    -- **NOTE: 1+1 = 2 that is... 0 with the CARRY of 1 !
-          when "100" => result <= "01" ;
-          when "101" => result <= "10" ;
-          when "110" => result <= "10" ;
-          when "111" => result <= "11" ;    -- 1+1+1 = 3
-
-      end case ;
-   end process ;
+   --process (A,B,Cin)
+   --process (all)
+   --begin
+   --
+   --   case ( Cin & A & B ) is
+   --
+   --       when "000" => result <= "00" ;
+   --       when "001" => result <= "01" ;
+   --       when "010" => result <= "01" ;
+   --       when "011" => result <= "10" ;    -- **NOTE: 1+1 = 2 that is... 0 with the CARRY of 1 !
+   --       when "100" => result <= "01" ;
+   --       when "101" => result <= "10" ;
+   --       when "110" => result <= "10" ;
+   --       when "111" => result <= "11" ;    -- 1+1+1 = 3
+   --
+   --   end case ;
+   --end process ;
 
 
    -------------------------
@@ -95,10 +97,10 @@ begin
    -------------------------
 
    -- sum
-   Sum  <= A xor B xor Cin ;   -- XOR between A, B and Cin inputs
+   --Sum  <= A xor B xor Cin ;   -- XOR between A, B and Cin inputs
 
    -- output carry
-   Cout <= (A and B) or (Cin and (A xor B)) ;
+   --Cout <= (A and B) or (Cin and (A xor B)) ;
 
 
 end architecture rtl ;

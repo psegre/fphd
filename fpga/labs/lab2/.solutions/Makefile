@@ -32,21 +32,21 @@ elaborate:
 
 
 ## run the simulation (xsim)
-simulate: xsim.dir/work.$(TOP)
+simulate: xsim.dir/work.$(TOP) run.tcl
 	@echo "exec xsim -gui -tclbatch run.tcl work.$(TOP) -wdb $(TOP).wdb -log $@.log &" | tclsh -norc
 
 
 ## one-step compilation/elaboration/simulation
-sim : compile elaborate simulate
+sim: compile elaborate simulate
 
 
 ## load waveforms into XSim GUI
-waves :
+waves: $(TOP).wdb
 	@echo "exec xsim -gui $(TOP).wdb -nolog &" | tclsh -norc
 
 
 ## delete all log files and simulation outputs
-clean :
+clean:
 	@$(RM) *.log *.jou *.pb *.wdb *.wcfg *.str
 	@$(RMDIR) xsim.dir .Xil
 

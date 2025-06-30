@@ -29,12 +29,12 @@ elaborate:
 
 
 ## run the simulation (xsim)
-#simulate: xsim.dir/work.$(TOP)
+#simulate: xsim.dir/work.$(TOP) run.tcl
 #	@xsim -gui -tclbatch run.tcl work.$(TOP) -log $@.log
 
 
 ## same as before, but keep alive the shell under Windows!
-simulate: xsim.dir/work.$(TOP)
+simulate: xsim.dir/work.$(TOP) run.tcl
 	@echo "exec xsim -gui -tclbatch run.tcl work.$(TOP) -wdb $(TOP).wdb -log $@.log &" | tclsh -norc
 
 
@@ -43,7 +43,7 @@ sim: compile elaborate simulate
 
 
 ## load waveforms into XSim GUI
-waves:
+waves: $(TOP).wdb
 	@echo "exec xsim -gui $(TOP).wdb -nolog &" | tclsh -norc
 
 

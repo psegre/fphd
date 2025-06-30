@@ -28,7 +28,7 @@ For this purpose you will use simple **slide switches** and **general-purpose LE
 available on the _Digilent Arty Board_.
 
 Additionally you will implement and verify a **parameterized ring-oscillator** circuit.
-Despite the circuit is pretty simple to be coded in Verilog you will need
+Despite the circuit is pretty simple to be coded in VHDL you will need
 additional `dont_touch` **synthesis directives** and **special timing constraints**
 in order to properly map the RTL code on real FPGA hardware.
 
@@ -41,7 +41,7 @@ in order to properly map the RTL code on real FPGA hardware.
 
 This practicum should exercise the following concepts:
 
-* review Verilog bitwise operators and gate-primitives
+* review VHDL bitwise operators and gate-primitives
 * implement and debug fundamental logic operators on real FPGA hardware
 * use improved _Project Mode_ Tcl scripts and `Makefile` to run the flows in batch mode
 * restore a design checkpoint in Vivado
@@ -105,11 +105,11 @@ The circuit that you are going to implement and debug is shown in figure.
 
 **RTL IMPLEMENTATION**
 
-To save time, copy from the `.solutions/` directory the `Gates.v` source file already
+To save time, copy from the `.solutions/` directory the `Gates.vhd` source file already
 discussed during lectures in `lab2` and `lab5` as follows:
 
 ```
-% cp .solutions/Gates.v .
+% cp .solutions/Gates.vhd .
 ```
 
 <br />
@@ -126,16 +126,16 @@ discussed during lectures in `lab2` and `lab5` as follows:
 Review the code using your preferred text-editor application:
 
 ```
-% gedit Gates.v &   (for Linux users)
+% gedit Gates.vhd &   (for Linux users)
 
-% n++ Gates.v       (for Windows users)
+% n++ Gates.vhd       (for Windows users)
 ```
 
 <br />
 
 **DESIGN CONSTRAINTS (XDC)**
 
-In order to map the Verilog code on real FPGA hardware you also need to write a **constraints file**
+In order to map the VHDL code on real FPGA hardware you also need to write a **constraints file**
 using a **Xilinx Design Constraints (XDC) script**. Create therefore with your **text-editor** application
 a new source file named `Gates.xdc` as follows:
 
@@ -163,8 +163,8 @@ In the following you can find useful information to help you in writing the code
 **PHYSICAL CONSTRAINTS (PORT MAPPING)**
 
 As a first step you have to write **pin constraints** required to map `A` and `B`
-Verilog inputs to slide-witches **SWO** and **SW1** and to map `Z[0]` ... `Z[5]`
-Verilog outputs to general-purpose LEDs as in figure. Use the main `arty_all.xdc` as a reference
+VHDL inputs to slide-witches **SWO** and **SW1** and to map `Z[0]` ... `Z[5]`
+VHDL outputs to general-purpose LEDs as in figure. Use the main `arty_all.xdc` as a reference
 for the syntax.
 
 ```
@@ -197,7 +197,7 @@ set_property IOSTANDARD LVCMOS33 [get_ports <HDL port name> ]
 >
 > Since everything in Tcl at the end is considered a string you need a way to **evaluate** Tcl commands.
 > Square brackets `[ ]` are used for this purpose to indicate "command evaluation".
-> As you might expect this introduces issues when working with **signal buses** in Verilog
+> As you might expect this introduces issues when working with **signal buses** in VHDL
 > that also use `[ ]` to access bus items. This happens also if you use `std_logic_vector`
 > ports in VHDL, because square brackets are used in XDC to access bus items despite the chosen HDL language used
 > for the top-level module.
@@ -283,7 +283,7 @@ Once ready, open Vivado in graphical mode with
 and try to run the FPGA implementation flow in _Project Mode_ up to bitstream generation:
 
 * create into the current directory a new project named `Gates` targeting the `xc7a35ticsg324-1L` FPGA device
-* add the `Gates.v` Verilog file to the project
+* add the `Gates.vhd` VHDL file to the project
 * add `Gates.xdc` design constraints to the project
 * run elaboration and inspect the RTL schematic
 * run synthesis and inspect the post-synthesis schematic
@@ -391,7 +391,7 @@ that are common to both implementation and programming flows such as the project
 and directory, the top-level RTL module and the target FPGA device.
 
 According to our initial coding conventions for the moment our basic projects only
-contain one single Verilog file `ModuleName.v` and one XDC file `ModuleName.xdc`.
+contain one single VHDL file `ModuleName.v` and one XDC file `ModuleName.xdc`.
 Therefore a single `topModuleName` Tcl variable is enough to specify `$topModuleName.v`
 and `$topModuleName.xdc` input files and to have a more portable flow.
 
@@ -484,10 +484,10 @@ Despite its apparent simplicity a ring-oscillator offers a first example of a
 and **special timing constraints** in order to properly implement this circuit
 on real FPGA hardware.
 
-Copy from the `.solutions/` directory both Verilog and XDC files already prepared for you:
+Copy from the `.solutions/` directory both VHDL and XDC files already prepared for you:
 
 ```
-% cp .solutions/RingOscillator.v .
+% cp .solutions/RingOscillator.vhd .
 % cp .solutions/RingOscillator.xdc .
 ```
 
@@ -502,20 +502,16 @@ most important syntax features, new constructs and special statements summarized
 
 In order to easily change the **number of inverters** in the ring-oscillator chain
 (and therefore the **frequency** of the `clk` output toggle) the module uses `NUM_INVERTERS`
-declared as a `parameter`. A Verilog `generate` **for-loop** is then used to automatically
+declared as a `parameter`. A VHDL `generate` **for-loop** is then used to automatically
 replicate and interconnect the chosen number of inverters.
 
 <br />
 
-Most important, you should have noticed the usage of the following **non-Verilog syntax** in the code:
+Most important, you should have noticed the usage of the following **extra syntax** in the code:
 
 ```
-(* dont_touch = "yes" *) wire [NUM_INVERTERS:0] w ;
-
-...
-...
-
-(* dont_touch = "yes" *) not NOT_INST (w[k+1], w[k]) ;
+attribute dont_touch : string ;
+attribute dont_touch of w : signal is "true" ;
 ```
 
 <br />
@@ -707,10 +703,10 @@ After the implementation has successfully completed install the firmware to the 
 <br />
 
 Verify the functionality of the ring-oscillator you have mapped on real hardware.
-Use the **SW0** slide-switch assigned to the `start` Verilog input port
+Use the **SW0** slide-switch assigned to the `start` VHDL input port
 to enable/disable the oscillator and probe the `clk` signal at the oscilloscope.
 Verify that the **LD4** general-purpose standard LED properly turns on/off to indicate
-that the oscillator is running or not. An additional `start_probe` Verilog output
+that the oscillator is running or not. An additional `start_probe` VHDL output
 is available to also display `start` at the oscilloscope. 
 
 <br />
@@ -727,7 +723,7 @@ is available to also display `start` at the oscilloscope.
 > Then open the **Trigger Menu** and switch the trigger-mode from **Auto** (default)
 > to **Normal**. Ensure that a positive-edge transition is used as
 > trigger condition. Finally select the channel used to display the
-> `start_probe` Verilog output port for the trigger and enable the ring-oscillator.
+> `start_probe` VHDL output port for the trigger and enable the ring-oscillator.
 >
 > In _Normal_ trigger mode in fact the trigger only occurs if the specified trigger
 > conditions are met, freezing the display after the trigger event.
@@ -804,7 +800,7 @@ set_property ALLOW_COMBINATORIAL_LOOPS TRUE [get_nets w* ]
 **EXERCISE 1**
 
 The number of inverters in the ring-oscillator chain determines the **frequency** of the `clk`
-output toggle. Since `NUM_INVERTERS` is a Verilog `parameter` you can easily change this number
+output toggle. Since `NUM_INVERTERS` is a VHDL `parameter` you can easily change this number
 and perform a study of the **frequency vs. number of inverters** relationship.
 
 Let suppose $t_p$ the propagation delay of a single inverter cell. The total input-to-output
@@ -840,13 +836,13 @@ at the oscilloscope the frequency of the `clk` output toggle and verify with a *
 expected linear trend versus $1/(N+1)$. Given the large number of inverters in the chain we can also
 simply approximate $N + 1 \approx N$ and perform the study versus $1/N$.
 
-Open the `RingOscillator.v` Verilog code with your preferred text editor application and run the FPGA
+Open the `RingOscillator.vhd` VHDL code with your preferred text editor application and run the FPGA
 implementation and programming flows at the command line by exploring 5-10 different `NUM_INVERTERS` values.
 At the end of each implementation install the new firmware to the FPGA and measure at the oscilloscope
 the frequency of the output toggle.
 
 In order to significantly change the frequency you have to generate the firmware for $\approx 2N_0$ , $\approx 3N_0$ ... $\approx 5N_0$ etc.
-assuming $N_0$ the initial value chosen for you for `NUM_INVERTERS` in the Verilog code.
+assuming $N_0$ the initial value chosen for you for `NUM_INVERTERS` in the VHDL code.
 
 Most important, be always sure that `NUM_INVERTERS` is an **odd number**, otherwise the circuit will never oscillate!
 As an example:
@@ -869,8 +865,8 @@ As an example:
 The overall procedure can be summarized as follows:
 
 * **stop** the ring-oscillator on the _Arty_ board
-* change `NUM_INVERTERS` in the `RingOscillator.v` Verilog code
-* save the modified Verilog file after your changes
+* change `NUM_INVERTERS` in the `RingOscillator.vhd` VHDL code
+* save the modified VHDL file after your changes
 * cleanup the working area (`make clean`)
 * generate the bitstream (`make build`)
 * install the firmware (`make install`)
@@ -1034,43 +1030,38 @@ Repeat the test targeting the **JB1** PMOD pin and experiment yourself with **te
 
 **EXERCISE 3**
 
-The proposed ring-oscillator implementation uses `NUM_INVERTERS` specified as a Verilog **module parameter**.
-Another possibility to easily change the number of inverters in the chain is to define and later use `NUM_INVERTERS`
-as a Verilog **macro** with the following syntax:
-
-```
-`define NUM_INVERTERS 237 
-```
-
-<br />
-
-Try yourself to modify the `RingOscillator.v` code in order to use this Verilog feature. For this purpose it might be useful
-to remind that the **value** of a Verilog macro is accessed in the code with the **back-tick** character <code>`</code> followed
-by the **name** of the macro. As an example:
-
-```
-(* dont_touch = "yes" *) wire [`NUM_INVERTERS:0] w ;
-```
-
-<br />
-<!--------------------------------------------------------------------->
-
-**EXERCISE 4**
-
 Implement and debug a simple **Full-Adder (FA)** combinational block as depicted in figure:
 
 <br />
 <img src="doc/pictures/FullAdder.png" alt="drawing" width="480"/>
 <br />
 
-The block is a pure **combinational circuit**, therefore you can use a **truth-table** implemented using a Verilog `case` statement.
-Alternatively, from the truth-table you can also write a **Karnaugh map** for each full-adder output and derive **logic equations**
-for `Sum` and `Cout`.
+The block is a pure **combinational circuit**, therefore you can use a **truth-table** implemented using
+a `case` statement.
+Alternatively, from the truth-table you can also write a **Karnaugh map** for each full-adder output
+and derive **logic equations** for `Sum` and `Cout`.
 
 Indeed, you can simply use the standard sum operaror `+` as in other programming languages for this purpose:
 
-```
-assign {Cout, Sum}  = A + B + Cin ;
+```vhdl
+library IEEE ;
+use IEEE.std_logic_1164.all ;
+use IEEE.std_logic_unsigned.all ;   -- to use + operator between std_logic_vector data types
+
+...
+
+   signal result : std_logic_vector(1 downto 0) ;
+
+begin
+
+   result  <= A + B + Cin ;
+
+   -- split sum bit and output-carry bit
+   Sum  <= result(0) ;
+   Cout <= result(1) ;
+
+...
+
 ```
 
 <br />
@@ -1080,7 +1071,7 @@ addition in real hardware.
 
 Try yourself to:
 
-* create new `FullAdder.v` and `FullAdder.xdc` source files from scratch
+* create new `FullAdder.vhd` and `FullAdder.xdc` source files from scratch
 * implement a `FullAdder` module that performs a 2-bit binary addition with both input and output carry
 * use XDC statements to map full-adder inputs to slide-switches **SW2**, **SW1** and **SW0** (use the left-most switch for the input-carry)
 and outputs to stadanrd LEDs **LD5** and **LD4** (use the left-most LED for the output carry)

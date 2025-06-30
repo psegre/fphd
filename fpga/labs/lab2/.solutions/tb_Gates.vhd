@@ -93,8 +93,8 @@ begin
    --   device under test (DUT)   --
    ---------------------------------
 
-   DUT : Gates port map (A => count(0), B => count(1), Z => Z) ;
-   --DUT : GatesTruthTable port map (A => count(0), B => count(1), Z => Z) ;
+   DUT : Gates port map (A => count(1), B => count(0), Z => Z) ;
+   --DUT : GatesTruthTable port map (A => count(1), B => count(0), Z => Z) ;
 
    -- another possibility is to use a more compact ENTITY INSTANTIATION (pick the compiled entity from the default WORK library)
    --DUT : entity work.Gates(rtl) port map (A => count(0), B => count(1), Z => Z) ;

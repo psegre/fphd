@@ -61,7 +61,7 @@ begin
    w(0) <= w(NUM_INVERTERS) and start ;
 
    -- inverters chain
-   for k in 0 to NUM_INVERTERS generate 
+   chain : for k in 0 to (NUM_INVERTERS-1) generate 
 
       w(k+1) <= not w(k) ;
 
