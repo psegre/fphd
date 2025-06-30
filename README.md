@@ -148,7 +148,15 @@ with a real FPGA and digital circuits using real hardware and instrumentation.
 > Students using a MacOS personal computer must either install
 > a supported operating system (Linux Ubuntu would be preferable)
 > using a dual-boot or a virtualization software (VirtualBox is fine)
-> or find another computer running a Linux distribution or Windows 7/10.
+> or find another computer running a Linux distribution or Windows 7/10/11.
+>
+> PhD students that already works at CERN and have access to the **CERN Linux Public Login User Service (LXPLUS)**
+> can run Vivado 2020.2 on a LXPLUS session as follows:
+>
+> ```
+> % ssh -X -C -l <CERN username> lxplus.cern.ch
+> % source /afs/cern.ch/project/parc/vivado20202/Vivado/2020.2/settings.(c)sh
+> ```
 >
 
 <br />
