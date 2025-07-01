@@ -19,8 +19,7 @@ global numCpu
 ##   project name   ##
 ######################
 
-#set projectName {Gates}
-set projectName {RingOscillator}
+set projectName {LED_pattern_mux}
 
 
 ###############################################################################
@@ -35,8 +34,7 @@ set projectDir {.}
 ##   top-level RTL module   ##
 ##############################
 
-#set topModuleName {Gates}
-set topModuleName {RingOscillator}
+set topModuleName {LED_pattern_mux}
 
 
 ###########################################################

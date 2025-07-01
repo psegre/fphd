@@ -1,6 +1,6 @@
 ################################################################################
 ##
-## Implementation constraints for the Gates.v Verilog example.
+## Implementation constraints for the Gates.vhd VHDL example.
 ## All pin positions and electrical properties refer to the
 ## Digilent Arty-A7 development board.
 ##
