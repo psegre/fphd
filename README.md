@@ -89,7 +89,7 @@ The main topics covered in the course are:
 
 <br />
 Lecture slides are available on the main
-[**CampusNet course material page**](https://www.fisicamagistrale.unito.it/do/didattica.pl/Quest?corso=70d4)
+<a href="https://www.phdphysics.unito.it/do/corsi.pl/Show?_id=4uun"><b>CampusNet course material page</b></a>
 while a complete list of reference documentation and online resources is available in the
 [**Reference documentation**](#reference-documentation) section instead.
 
@@ -101,7 +101,7 @@ Additional software components for Windows can be downloaded from:
 
 <p>
 
-**<http://personalpages.to.infn.it/~pacher/teaching/FPGA/software/windows>**
+**<https://www.to.infn.it/~pacher/teaching/FPGA/software/windows>**
 
 </p>
 
