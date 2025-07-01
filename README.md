@@ -155,7 +155,7 @@ with a real FPGA and digital circuits using real hardware and instrumentation.
 >
 > ```
 > % ssh -X -C -l <CERN username> lxplus.cern.ch
-> % source /afs/cern.ch/project/parc/vivado20202/Vivado/2020.2/settings.(c)sh
+> % source /afs/cern.ch/project/parc/vivado20202/Vivado/2020.2/settings64.(c)sh
 > ```
 >
 
