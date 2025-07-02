@@ -579,34 +579,13 @@ can be found [**here**](doc/LOA.md).
 [**[Contents]**](#contents)
 
 In order to maximize the participation all lectures will be held **remotely** using the [**WebEx UniTO**](https://www.unito.it/node/2373) platform.
-All lectures will be also **video-recorded**.<br />
 
 The virtual room to attend the lectures is accessible at the following link:
 
 **_<https://unito.webex.com/meet/luca.pacher>_**
 
 <br/>
-
-### Links to **video-recorded lectures** (in English)
-
-The complete list of past video-recorded lectures can be accessed [**here**](doc/webex/README.md).
-
-* Lecture 1<br />
-
-* Lecture 2<br />
-
-* Lecture 3<br />
-
-* Lecture 4<br />
-
-* Lecture 5<br />
-
-* Lecture 6<br />
-
-* Lecture 7<br />
-
-* Lecture 8<br />
-
+<!--------------------------------------------------------------------->
 
 </div>
 
