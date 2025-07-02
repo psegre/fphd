@@ -23,7 +23,7 @@
 [**[Contents]**](#contents)
 
 In this practicum you are going to implement and debug fundamental **logic gates** such
-as AND, NAND, OR, NOR, XOR and XNOR as already discussed in `lab2` and `lab5`.
+as AND, NAND, OR, NOR, XOR and XNOR as already discussed in `lab2`.
 For this purpose you will use simple **slide switches** and **general-purpose LEDs**
 available on the _Digilent Arty Board_.
 
