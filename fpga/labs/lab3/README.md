@@ -24,6 +24,7 @@
 * [**Create a Vivado project from Tcl**](#create-a-vivado-project-from-tcl)
 * [**Run the flow in Non Project mode**](#run-the-flow-in-non-project-mode)
 * [**Further readings**](#further-readings)
+* [**Exercise**](#exercises)
 
 <br />
 <!--------------------------------------------------------------------->
@@ -62,6 +63,7 @@ This lab should exercise the following concepts:
 * save and restore design checkpoints (DCP)
 * generate a gate-level netlist of the implemented design
 * automate the flow using Tcl scripts
+* instantiate and simulate FPGA device primitives into HDL code
 
 <br />
 <!--------------------------------------------------------------------->
@@ -615,6 +617,59 @@ Fore more details about Vivado usage modes and flows refer to Xilinx official do
 https://www.xilinx.com/support/documentation/sw_manuals/xilinx2019_2/ug910-vivado-getting-started.pdf)
 * [_Vivado Design Suite User Guide: Design Flows Overview (UG892)_](
 https://www.xilinx.com/support/documentation/sw_manuals/xilinx2019_2/ug892-vivado-design-flows-overview.pdf)
+
+<br />
+<!--------------------------------------------------------------------->
+
+## Exercise
+[**[Contents]**](#contents)
+
+Modify the original `Gates.vhd` code in order to pre-place **input buffers** on `A` and `B` inputs
+using `IBUF` **FPGA device primitives**.
+
+
+```vhdl
+library UNISIM ;
+use UNISIM.vcomponents.all ; 
+
+...
+...
+
+architecture rtl of Gates is
+
+   signal A_int : std_logic ;
+   signal B_int : std_logic ;
+
+   component IBUF is
+      port (
+         I : in  std_logic ;
+         O : out std_logic
+      ) ;
+   end component ;
+
+begin
+
+   IBUF_A : IBUF port map( I => A, O => A_int ) ;
+   IBUF_B : IBUF port map( I => B, O => B_int ) ;
+
+   ...
+   ...
+
+end architecture rtl ;
+```
+
+<br />
+
+As you can notice in order to then simulate Xilinx FPGA device primitives you have to include the `UNISIM` library
+that comes with the Xilinx Vivado installation.
+
+Once done try to compile and simulate the updated design from the command line with:
+
+```
+% cp .solutions/run.tcl .
+% make clean
+% make sim
+```
 
 <br />
 <!--------------------------------------------------------------------->
