@@ -78,6 +78,9 @@ create_project -verbose -force -part $targetFPGA $projectName $projectDir
 add_files -norecurse -fileset sources_1 $topModuleName.vhd
 update_compile_order -fileset sources_1
 
+## if needed force to use VHDL-2008 compilation
+#set_property FILE_TYPE {VHDL 2008} [get_files $topMuduleName.vhd]
+
 ## load design constraints (XDC)
 add_files -norecurse -fileset constrs_1 $topModuleName.xdc
 
