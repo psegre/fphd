@@ -8,6 +8,12 @@ For this practicum **try yourself** to write a suitable multiplexing logic
 to alternatively drive LD7-LD6-LD5-LD4 standard LEDs available on the _Arty_ board
 with `1010` and `0101` patterns.
 
+<br />
+
+<img src="doc/pictures/LED_pattern_mux.png" alt="drawing" width="700"/>
+
+<br />
+
 All scripts and `Makefile` can be copied from the `.solutions/` directory as follows:
 
 ```
