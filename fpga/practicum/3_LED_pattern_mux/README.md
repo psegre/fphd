@@ -5,8 +5,8 @@
 [[**Home**](https://github.com/lpacher/fphd)] [[**Back**](https://github.com/lpacher/fphd/tree/master/fpga/practicum)]
 
 For this practicum **try yourself** to write a suitable multiplexing logic
-to alternatively drive LD7-LD6-LD5-LD4 standard LEDs available on the _Arty_ board
-with `1010` and `0101` patterns.
+to alternatively drive the four standard LEDs available on the Digilent _Arty_ board
+with either `1010` or `0101` patterns according to the position of a slide-switch.
 
 <br />
 
@@ -19,7 +19,21 @@ All scripts and `Makefile` can be copied from the `.solutions/` directory as fol
 
 ```
 % cp .solutions/Makefile .
+% cp .solutions/setup.tcl .
 % cp .solutions/build.tcl .
 % cp .solutions/install.tcl .
 ```
 
+Try yourself to:
+
+* create new `LED_pattern_mux.vhdl` and `LED_pattern_mux.xdc` source files from scratch
+* implement a `LED_pattern_mux` module that performs the requested functionality
+* use XDC statements to map the MUX selector to switch **SW0** and output LEDs to standard LEDs **LD7-LD6-LD5-LD4**
+* check project settings into `setup.tcl` script
+* run the implementation flow from `Makefile`
+* install and debug the firmware
+
+<br />
+<!--------------------------------------------------------------------->
+
+</div>
