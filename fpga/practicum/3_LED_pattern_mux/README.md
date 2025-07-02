@@ -26,7 +26,7 @@ All scripts and `Makefile` can be copied from the `.solutions/` directory as fol
 
 Try yourself to:
 
-* create new `LED_pattern_mux.vhdl` and `LED_pattern_mux.xdc` source files from scratch
+* create new `LED_pattern_mux.vhd` and `LED_pattern_mux.xdc` source files from scratch
 * implement a `LED_pattern_mux` module that performs the requested functionality
 * use XDC statements to map the MUX selector to switch **SW0** and output LEDs to standard LEDs **LD7-LD6-LD5-LD4**
 * check project settings into `setup.tcl` script
