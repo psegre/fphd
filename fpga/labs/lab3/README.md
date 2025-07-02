@@ -24,7 +24,7 @@
 * [**Create a Vivado project from Tcl**](#create-a-vivado-project-from-tcl)
 * [**Run the flow in Non Project mode**](#run-the-flow-in-non-project-mode)
 * [**Further readings**](#further-readings)
-* [**Exercise**](#exercises)
+* [**Exercise**](#exercise)
 
 <br />
 <!--------------------------------------------------------------------->
