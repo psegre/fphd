@@ -11,6 +11,7 @@ with `1010` and `0101` patterns.
 <br />
 
 <img src="doc/pictures/LED_pattern_mux.png" alt="drawing" width="700"/>
+<img src="doc/pictures/table.png" alt="drawing" width="500"/>
 
 <br />
 
