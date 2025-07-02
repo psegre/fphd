@@ -45,26 +45,11 @@ set tclStart [clock seconds]
 ##   project setup   ##
 #######################
 
-#set projectName    {Gates}
-#set projectDir     {.}
-#set topModuleName  {Gates}
-#set targetFPGA     {xc7a35ticsg324-1L}
-#set numCpu         {4}
-
-## load global variables common to both FPGA implementation and programming flows from external Tcl script
-#source [pwd]/setup.tcl
-
-if { [file exists [pwd]/setup.tcl] } {
-
-   source [pwd]/setup.tcl
-
-} else {
-
-   puts "\n**ERROR \[TCL\]: Project setup script not found! Force an exit.\n"
-
-   ## script failure
-   exit 1
-}
+set projectName    {Gates}
+set projectDir     {.}
+set topModuleName  {Gates}
+set targetFPGA     {xc7a35ticsg324-1L}
+set numCpu         {4}
 
 
 ########################################################################
