@@ -15,4 +15,7 @@ https://github.com/lpacher/fphd/tree/master/fpga/labs/lab2)
 [The Xilinx Vivado FPGA implementation flow on a simple RTL design.](
 https://github.com/lpacher/fphd/tree/master/fpga/labs/lab3)
 
+* **Lab 4**<br />
+[Different coding styles for a 2:1 multiplexer.](
+https://github.com/lpacher/fphd/tree/master/fpga/labs/lab4)
 
