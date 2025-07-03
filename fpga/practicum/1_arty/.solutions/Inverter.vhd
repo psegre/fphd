@@ -14,8 +14,12 @@ use IEEE.std_logic_1164.all ;   -- include extended logic values (by default VHD
 entity Inverter is
 
    port (
-      X  : in  std_logic ;
-      ZN : out std_logic
+      X        : in  std_logic ;
+      ZN       : out std_logic
+
+      -- **EXTRA: send copies of X/ZN inverter pins to oscilloscope probes
+--    probe_X   : out std_logic ;
+--    probe_ZN  : out std_logic
    ) ;
 
 end entity Inverter ;
@@ -32,6 +36,10 @@ begin
 
    -- when/else conditional signal assignment (MUX-style)
    --ZN <= '1' when X = '0' else '0' ;
+
+   -- **DEBUG at the oscilloscope
+   --probe_X  <= X ;
+   --probe_ZN <= ZN ;
 
 end architecture rtl ;
 
