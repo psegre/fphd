@@ -23,3 +23,14 @@ https://github.com/lpacher/fphd/tree/master/fpga/labs/lab3)
 [Different coding styles for a 2:1 multiplexer.](
 https://github.com/lpacher/fphd/tree/master/fpga/labs/lab4)
 
+* **Lab 6**<br />
+[Introduction to sequential circuits: D-latch and D-FlipFlop in Verilog. Synchronous vs asynchronous reset.<br />
+Implementation of 4-bit asynchronous and synchronous counters using structural code. Behavioral implementation.](
+https://github.com/lpacher/fphd/tree/master/fpga/labs/lab6)
+
+* **Lab 7**<br />
+[Implementation of a simple parameterizable N-digit Binary-Coded Decimal (BCD) counter in Verilog.<br />
+Good and bad clocking techniques. Introduction to the Vivado IP flow (the _Clocking Wizard_).<br />
+Example Real-Number Model (RNM) simulation of a Voltage-Controlled Oscillator (VCO).](
+https://github.com/lpacher/fphd/tree/master/fpga/labs/lab7)
+
