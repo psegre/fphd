@@ -13,10 +13,10 @@
 #############################################
 
 ## slide switches
-set_property -dict { PACKAGE_PIN A8   IOSTANDARD LVCMOS33} [get_ports {BCD[0]} ]
-set_property -dict { PACKAGE_PIN C11  IOSTANDARD LVCMOS33} [get_ports {BCD[1]} ]
-set_property -dict { PACKAGE_PIN C10  IOSTANDARD LVCMOS33} [get_ports {BCD[2]} ]
-set_property -dict { PACKAGE_PIN A10  IOSTANDARD LVCMOS33} [get_ports {BCD[3]} ]
+set_property -dict { PACKAGE_PIN A8   IOSTANDARD LVCMOS33} [get_ports {BCD[0]} ] ;   ## SW0
+set_property -dict { PACKAGE_PIN C11  IOSTANDARD LVCMOS33} [get_ports {BCD[1]} ] ;   ## SW1 
+set_property -dict { PACKAGE_PIN C10  IOSTANDARD LVCMOS33} [get_ports {BCD[2]} ] ;   ## SW2
+set_property -dict { PACKAGE_PIN A10  IOSTANDARD LVCMOS33} [get_ports {BCD[3]} ] ;   ## SW3
 
 ## JA header mapping (200 ohm series resistor on each pin)
 set_property -dict { PACKAGE_PIN G13  IOSTANDARD LVCMOS33 } [get_ports segA] ;   ## JA[1]
