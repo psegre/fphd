@@ -16,7 +16,7 @@ log_wave -recursive /*
 #add_wave /*
 
 ## add all DUT internal signals to the Wave window
-add_wave /DUT/*
+add_wave /tb_Gates/DUT/*
 
 ## run the simulation until a $stop or $finish statement is found in the code
 run all
