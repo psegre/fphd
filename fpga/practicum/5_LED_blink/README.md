@@ -235,7 +235,7 @@ LED with a **toggle period** of about **one second or more**.
 Save the source code once done and compile the file to check for syntax errors:
 
 ```
-% make compile hdl=rtl/LED_blink.v
+% make compile hdl=rtl/LED_blink.vhd
 ```
 
 <br />
