@@ -81,7 +81,8 @@ begin
    --   behavioral implementation   --
    -----------------------------------
 
-   process (all)
+   --process(all)    -- VHDL-2008 only feature
+   process (BCD)
    begin
 
       case ( BCD ) is
@@ -98,8 +99,8 @@ begin
          when "1000" =>  seg <= "1111111" ;  --  8
          when "1001" =>  seg <= "1111011" ;  --  9
 
-         -- **IMPORTANT: latches inferred otherwise !
-         --when others =>  seg <= "0000001" ;  -- minus sign otherwise
+         -- catch-all condition (mandatory in VHDL)
+         when others =>  seg <= "0000001" ;  -- minus sign otherwise
 
          -- COMMON ANODE (just for reference)
          --when "0000" =>  seg <= "0000001" ;  --  0
