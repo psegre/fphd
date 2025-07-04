@@ -62,7 +62,7 @@ This practicum should exercise the following concepts:
 As a first step, open a **terminal** window and change to the practicum directory:
 
 ```
-% cd Desktop/fphd/fpga/practicum/4_LED_blink
+% cd Desktop/fphd/fpga/practicum/5_LED_blink
 ```
 
 <br />
@@ -86,7 +86,7 @@ code, design constraints, Tcl scripts etc.) away from the "scratch" **working di
 to run the flows.
 
 For this reason from this practicum on we will start to adopt a better working-area organization as already
-introduced into `lab3`. The proposed directory-tree is summarized below.
+introduced into `lab4`. The proposed directory-tree is summarized below.
 
 <br />
 
