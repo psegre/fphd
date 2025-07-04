@@ -77,9 +77,9 @@ begin
 --   segG <= A or (B and (not C)) or ((not B) and C) or (C and (not D)) ;
 
 
-   -----------------------------------
-   --   behavioral implementation   --
-   -----------------------------------
+   ------------------------------------------
+   --   behavioral implementation (case)   --
+   ------------------------------------------
 
    --process(all)    -- VHDL-2008 only feature
    process (BCD)
@@ -92,7 +92,7 @@ begin
          when "0001" =>  seg <= "0110000" ;  --  1
          when "0010" =>  seg <= "1101101" ;  --  2
          when "0011" =>  seg <= "1111001" ;  --  3
-         when "0100" =>  seg <= "0001100" ;  --  4
+         when "0100" =>  seg <= "0110011" ;  --  4
          when "0101" =>  seg <= "1011011" ;  --  5
          when "0110" =>  seg <= "1011111" ;  --  6
          when "0111" =>  seg <= "1110000" ;  --  7
@@ -116,6 +116,24 @@ begin
 
       end case ;
    end process ;
+
+   -----------------------------------------------
+   --   behavioral implementation (when/else)   --
+   -----------------------------------------------
+
+   -- COMMON CATHODE
+   --seg <= "1111110" when BCD = "0000" else   --  0
+   --seg <= "0110000" when BCD = "0001" else   --  1
+   --seg <= "1101101" when BCD = "0010" else   --  2
+   --seg <= "1111001" when BCD = "0011" else   --  3
+   --seg <= "0001100" when BCD = "0100" else   --  4
+   --seg <= "1011011" when BCD = "0101" else   --  5
+   --seg <= "1011111" when BCD = "0110" else   --  6
+   --seg <= "1110000" when BCD = "0111" else   --  7
+   --seg <= "1111111" when BCD = "1000" else   --  8
+   --seg <= "1111011" when BCD = "1001" else   --  9
+   --       "0000001" ;
+
 
    segA <= seg(6) ;
    segB <= seg(5) ;
