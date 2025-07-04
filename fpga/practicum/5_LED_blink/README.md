@@ -520,7 +520,7 @@ a dedicated reset signal.
 > startup value!
 >
 > A professional synthesis tool (e.g. _Genus_ by Cadence or _Design Compiler_ by Synopsys) used to make real integrated circuits
-> would simply ignore the `initial` statement in your code.
+> would simply ignore FlipFlops initialization statements in your code.
 >
 
 <br />

@@ -68,10 +68,10 @@ SIM_TOP_MODULE := tb_LED_blink
 ##
 
 #RTL_VLOG_SOURCES := $(RTL_DIR)/LED_blink.v
-#SIM_VLOG_SOURCES := $(SIM_DIR)/glbl.v $(SIM_DIR)/ClockGen.v $(SIM_DIR)/tb_LED_blink.v
+SIM_VLOG_SOURCES := $(SIM_DIR)/tb_LED_blink.v
 
 RTL_VHDL_SOURCES := $(RTL_DIR)/LED_blink.vhd
-SIM_VLOG_SOURCES := $(SIM_DIR)/ClockGen.vhd $(SIM_DIR)/tb_LED_blink.vhd
+SIM_VHDL_SOURCES := $(SIM_DIR)/ClockGen.vhd
 
 
 ## specify optional '-define' statements (Verilog-only)
@@ -122,7 +122,7 @@ VLOG_NETLIST := $(WORK_DIR)/build/outputs/mapped.v
 ###################################################################
 
 ## RTL simulation
-VLOG_SOURCES := $(RTL_VLOG_SOURCES) $(SIM_VLOG_SOURCES)
+VLOG_SOURCES := $(SIM_VLOG_SOURCES)
 VHDL_SOURCES := $(RTL_VHDL_SOURCES) $(SIM_VHDL_SOURCES)
 
 ## GL simulation (optionally with SDF)
