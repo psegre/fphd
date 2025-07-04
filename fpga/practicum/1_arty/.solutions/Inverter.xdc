@@ -39,6 +39,11 @@ set_property -dict { PACKAGE_PIN H5  IOSTANDARD LVCMOS33 } [get_ports ZN] ;   ##
 #set_property IOSTANDARD LVCMOS33  [concat [all_inputs] [all_outputs]]
 
 
+## **EXTRA: send copies of X/ZN inverter pins to a couple of Chipkit/Arduino headers for oscilloscope probing
+#set_property -dict { PACKAGE_PIN F5  IOSTANDARD LVCMOS33 } [get_ports probe_X ] ;   ## A0
+#set_property -dict { PACKAGE_PIN N17 IOSTANDARD LVCMOS33 } [get_ports probe_ZN] ;   ## IO41
+
+
 ############################
 ##   timing constraints   ##
 ############################
