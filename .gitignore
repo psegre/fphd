@@ -14,7 +14,12 @@
 log*
 
 ## compile files:
-*.jou *.pb *.wdb *.str xsim.dir .Xil
+*.jou 
+*.pb
+*.wdb
+*.str
+xsim.dir
+.Xil
 
 ## temporary directory (optional)
 tmp/*
