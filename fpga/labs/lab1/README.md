@@ -777,7 +777,7 @@ To start XSim type:
 > ```
 > % xelab -debug all tb_Inverter -s tb_Inverter.exe 
 > % xsim -gui tb_Inverter.exe
->
+>```
 
 <br />
 
@@ -822,9 +822,11 @@ As an example, **probe all top-level signals** (testbench signals) using `add_wa
 
 ```
 add_wave /*
+
 ```
 
 <br />
+
 
 ![](./doc/pictures/add_wave1.png)
 

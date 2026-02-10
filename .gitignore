@@ -27,3 +27,4 @@ fpga/practicum/*
 fpga/projects/*
 
 ## add here further directives if required ...
+.vscode/*
