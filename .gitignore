@@ -30,7 +30,7 @@ temp/*
 test/*
 
 ## all students stuffs (use git add -f to add .solutions/ instead)
-#fpga/test/*
+fpga/test/*
 #fpga/labs/*
 #fpga/practicum/*
 #fpga/projects/*
