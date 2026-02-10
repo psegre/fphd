@@ -27,7 +27,7 @@ temp/*
 
 ## FORKED!
 ## test directory content
-#test/*
+test/*
 
 ## all students stuffs (use git add -f to add .solutions/ instead)
 #fpga/test/*
