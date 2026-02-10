@@ -13,18 +13,22 @@
 *.log
 log*
 
+## compile files:
+*.jou *.pb *.wdb *.str xsim.dir .Xil
+
 ## temporary directory (optional)
 tmp/*
 temp/*
 
+## FORKED!
 ## test directory content
-test/*
+#test/*
 
 ## all students stuffs (use git add -f to add .solutions/ instead)
-fpga/test/*
-fpga/labs/*
-fpga/practicum/*
-fpga/projects/*
+#fpga/test/*
+#fpga/labs/*
+#fpga/practicum/*
+#fpga/projects/*
 
 ## add here further directives if required ...
 .vscode/*
