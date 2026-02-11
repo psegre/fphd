@@ -12,7 +12,8 @@ entity BufferTri is
 
    port (
       X  : in  std_logic ;
-      ZN : out std_logic
+      OE  : in  std_logic ;
+      ZT : out std_logic
    ) ;
 
 end entity BufferTri ;
@@ -24,6 +25,6 @@ architecture rtl of BufferTri is
 begin
 
    -- signal assignment
-   ZT <= X when OE = '1' else 'z' ;
+   ZT <= X when OE = '1' else 'Z' ;
 
 end architecture rtl ;

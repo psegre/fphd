@@ -35,8 +35,9 @@ architecture testbench of tb_Inverter is
 
    component BufferTri
       port (
+         OE  : in  std_logic ;
          X  : in  std_logic ;
-         ZN : out std_logic
+         ZT : out std_logic
       ) ;
    end component ;
 
@@ -45,7 +46,9 @@ architecture testbench of tb_Inverter is
    --------------------------
 
    signal X  : std_logic := '0';  -- initialize to '0'
+   signal OE  : std_logic := '1';  -- initialize to '0'
    signal ZN : std_logic;         -- output, will be driven by DUT
+   signal ZT : std_logic;         -- output, will be driven by DUT
 
 
 begin
@@ -54,9 +57,9 @@ begin
    ---------------------------------
    --   device under test (DUT)   --
    ---------------------------------
-   
-   --DUT : BufferTri port map (X, ZN) ;            -- ORDERED (positional) port mapping
-   DUT : BufferTri port map (X => X, ZN => ZN) ;   -- BY-NAME port mapping
+
+   DUT_INV : Inverter port map (X => X, ZN => ZN) ;
+   DUT_TRI : BufferTri port map (OE => OE, X => X, ZT => ZT) ;
 
 
    -----------------------
@@ -65,10 +68,13 @@ begin
 
    stimulus : process
    begin
-   
+
+      wait for 500 ns ; X <= '0'; OE <= '1';
+      wait for 100 ns ; OE <= '0' ;
+      wait for 100 ns ; X <= '1' ;
       wait for 500 ns ; X <= '0' ;
       wait for 200 ns ; X <= '1' ;
-      wait for 750 ns ; X <= '0' ;
+
 
       wait for 500 ns ; finish ;     -- stop the simulation (this is a VHDL2008-only feature)
 
